@@ -98,3 +98,7 @@ powershell -ExecutionPolicy Bypass -File build.ps1            # build into bin\
 powershell -ExecutionPolicy Bypass -File build.ps1 -Install   # build and copy into Mods
 powershell -ExecutionPolicy Bypass -File build.ps1 -Package   # build and create dist\SignalForge-<version>.zip
 ```
+
+---
+
+Licence / License: [MIT](LICENSE) — leterrible20

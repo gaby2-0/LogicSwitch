@@ -52,7 +52,7 @@ if ($Package) {
     Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
     New-Item -ItemType Directory -Force "$stage\Mods" | Out-Null
     Copy-Item $out "$stage\Mods\SignalForge.dll"
-    Copy-Item "$root\README.md" $stage
+    Copy-Item "$root\README.md", "$root\LICENSE" $stage
     $manifest = [ordered]@{
         id          = "signalforge"
         name        = "SignalForge"
