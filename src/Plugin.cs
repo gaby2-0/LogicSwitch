@@ -10,37 +10,37 @@ using Ships.Interface.Settings;
 using Ships.Parts.FluidValve;
 using Ships.Parts.MathGate;
 
-[assembly: MelonInfo(typeof(SignalForge.Plugin), "StellarDrive SignalForge", SignalForge.Plugin.Version, SignalForge.Plugin.Author)]
+[assembly: MelonInfo(typeof(LogicSwitch.Plugin), "StellarDrive Logic&Switch", LogicSwitch.Plugin.Version, LogicSwitch.Plugin.Author)]
 [assembly: MelonGame("CuriousOwlGames", "StellarDrive")]
 [assembly: MelonAdditionalDependencies("SDModKit")]
 [assembly: HarmonyDontPatchAll]
-[assembly: StellarMod("signalforge", "SignalForge",
+[assembly: StellarMod("logicswitch", "Logic&Switch",
     Description = "Signal lamps, logic gates, push buttons, switch, circuit breaker and signal door.")]
 
-namespace SignalForge
+namespace LogicSwitch
 {
     public class Plugin : MelonMod
     {
-        public const string Guid = "stellardrive.signalforge";
+        public const string Guid = "stellardrive.logicswitch";
         public const string Version = "1.4.0";
         public const string Author = "leterrible20";
 
         public override void OnInitializeMelon()
         {
-            ModKit.Register(new SignalForgeMod(), ConfigFile.For(Guid));
+            ModKit.Register(new LogicSwitchMod(), ConfigFile.For(Guid));
         }
     }
 
-    public class SignalForgeMod : SDMod
+    public class LogicSwitchMod : SDMod
     {
-        public override string Id { get { return "signalforge"; } }
-        public override string Name { get { return "SignalForge"; } }
+        public override string Id { get { return "logicswitch"; } }
+        public override string Name { get { return "Logic&Switch"; } }
 
         public override void OnRegistered()
         {
             Parts.RegisterAll();
             Patch(ModPatches.For(Plugin.Guid));
-            MelonLogger.Msg("[SignalForge] " + Plugin.Version + " ready");
+            MelonLogger.Msg("[Logic&Switch] " + Plugin.Version + " ready");
         }
 
         private static void Patch(HarmonyLib.Harmony harmony)
@@ -80,7 +80,7 @@ namespace SignalForge
                 postfix: new HarmonyMethod(typeof(Server), "AfterLeverEmissionSockets"));
             // The build menu only lists parts unlocked by a finished research; ours have none.
             PatchByName(harmony, "Research.ResearchClientProxy:IsPartUnlocked",
-                typeof(SignalForgeMod), "AfterIsPartUnlocked", "build menu");
+                typeof(LogicSwitchMod), "AfterIsPartUnlocked", "build menu");
         }
 
         private static void PatchByName(HarmonyLib.Harmony harmony, string target, System.Type owner, string postfix, string feature)
@@ -89,7 +89,7 @@ namespace SignalForge
             if (method != null)
                 harmony.Patch(method, postfix: new HarmonyMethod(owner, postfix));
             else
-                MelonLogger.Warning("[SignalForge] " + target + " not found, " + feature + " disabled");
+                MelonLogger.Warning("[Logic&Switch] " + target + " not found, " + feature + " disabled");
         }
 
         public static void AfterIsPartUnlocked(PartSettings part, ref bool __result)

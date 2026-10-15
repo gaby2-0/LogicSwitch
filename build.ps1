@@ -1,7 +1,7 @@
-# Builds SignalForge.dll with the C# compiler that ships with Windows (.NET Framework 4.8).
+# Builds LogicSwitch.dll with the C# compiler that ships with Windows (.NET Framework 4.8).
 #   build.ps1            build into bin\
 #   build.ps1 -Install   build and copy into the game's Mods folder
-#   build.ps1 -Package   build and create dist\SignalForge-<version>.zip to share
+#   build.ps1 -Package   build and create dist\LogicSwitch-<version>.zip to share
 param([switch]$Install, [switch]$Package)
 
 $ErrorActionPreference = "Stop"
@@ -13,7 +13,7 @@ $managed = "$game\StellarDrive_Data\Managed"
 $melon   = "$game\MelonLoader\net472"
 $mods    = "$game\Mods"
 $root    = $PSScriptRoot
-$out     = "$root\bin\SignalForge.dll"
+$out     = "$root\bin\LogicSwitch.dll"
 $csc     = "C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe"
 
 $refs = @(
@@ -39,9 +39,11 @@ if ($LASTEXITCODE -ne 0) { throw "Build failed" }
 Write-Host "OK -> $out"
 
 if ($Install) {
-    Copy-Item $out "$mods\SignalForge.dll" -Force
-    # The mod was first published as ElectroLogic; both loaded together would register every part twice.
-    Remove-Item "$mods\ElectroLogic.dll" -ErrorAction SilentlyContinue
+    Copy-Item $out "$mods\LogicSwitch.dll" -Force
+    # Earlier builds were named ElectroLogic and SignalForge; loaded together they would register every part twice.
+    foreach ($old in "ElectroLogic.dll", "SignalForge.dll") {
+        if (Test-Path "$mods\$old") { Remove-Item "$mods\$old" }
+    }
     Write-Host "Installed into $mods"
 }
 
@@ -51,17 +53,17 @@ if ($Package) {
     $stage   = "$root\dist\stage"
     Remove-Item $stage -Recurse -Force -ErrorAction SilentlyContinue
     New-Item -ItemType Directory -Force "$stage\Mods" | Out-Null
-    Copy-Item $out "$stage\Mods\SignalForge.dll"
+    Copy-Item $out "$stage\Mods\LogicSwitch.dll"
     Copy-Item "$root\README.md", "$root\LICENSE" $stage
     $manifest = [ordered]@{
-        id          = "signalforge"
-        name        = "SignalForge"
+        id          = "logicswitch"
+        name        = "Logic&Switch"
         author      = $author
         version     = $version
         description = "Signal lamps, logic gates (AND/OR/XOR and more), push buttons NO/NC, toggle switch, circuit breaker and signal door. Needs SDModKit."
     }
     $manifest | ConvertTo-Json | Set-Content "$stage\mod.json" -Encoding UTF8
-    $zip = "$root\dist\SignalForge-$version.zip"
+    $zip = "$root\dist\LogicSwitch-$version.zip"
     Remove-Item $zip -Force -ErrorAction SilentlyContinue
     Compress-Archive -Path "$stage\*" -DestinationPath $zip
     Remove-Item $stage -Recurse -Force

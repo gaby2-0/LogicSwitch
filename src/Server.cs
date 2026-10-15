@@ -13,7 +13,7 @@ using Ships.Interface.Model.State;
 using Ships.Interface.Services;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Host-side behaviour of the gates, buttons, switch, door and breaker handle.
     internal static class Server

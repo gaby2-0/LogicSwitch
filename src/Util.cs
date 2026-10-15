@@ -10,7 +10,7 @@ using Ships.Interface.Model.Parts;
 using Ships.Interface.Model.Parts.Common;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // The game's part states are C# records with init-only setters, which this
     // compiler cannot call, so states are cloned and written through reflection.
@@ -85,7 +85,7 @@ namespace SignalForge
         public static void Once(string context, Exception error)
         {
             if (Seen.Add(context))
-                MelonLogger.Error("[SignalForge] " + context + " : " + error);
+                MelonLogger.Error("[Logic&Switch] " + context + " : " + error);
         }
     }
 }

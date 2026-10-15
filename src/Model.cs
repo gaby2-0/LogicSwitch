@@ -5,7 +5,7 @@ using Ships.Interface.Model.Parts.Common;
 using Ships.Interface.Settings;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Turning a donor's fluid plug into a power plug, as the Resistor of Functional Batteries does.
     internal static class Sockets
@@ -33,7 +33,7 @@ namespace SignalForge
             socket.shouldCreateFluidBufferWhenTouchingAnotherSocket = false;
             if (template == null)
             {
-                MelonLogger.Warning("[SignalForge] no vanilla power plug found, plug " + socket.Id + " keeps its fluid look");
+                MelonLogger.Warning("[Logic&Switch] no vanilla power plug found, plug " + socket.Id + " keeps its fluid look");
                 return;
             }
             socket.visualObject = template.visualObject;
@@ -195,7 +195,7 @@ namespace SignalForge
         {
             const int n = 64;
             Texture2D t = new Texture2D(n, n, TextureFormat.RGBA32, false);
-            t.name = "SignalForge icon";
+            t.name = "Logic&Switch icon";
             Color clear = new Color(1f, 1f, 1f, 0f);
             for (int y = 0; y < n; y++)
                 for (int x = 0; x < n; x++)

@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // French when the game (or, before the game picked a language, Windows) is in French,
     // English otherwise. Read once: part texts are built once per launch.

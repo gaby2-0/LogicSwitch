@@ -6,7 +6,7 @@ using Ships.Cables.Power;
 using Ships.Interface.Model.Parts;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Circuit breaker: while closed, moves power between the groups on its two power plugs,
     // from the side with spare production to the side that is short (host only).

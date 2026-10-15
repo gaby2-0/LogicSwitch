@@ -4,7 +4,7 @@ using Ships.Parts.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Holding F on a push button keeps it pressed. The game only reports the key going down, so
     // while F stays held the player's client presses the button again every RepeatSeconds; each

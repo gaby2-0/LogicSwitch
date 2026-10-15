@@ -1,10 +1,10 @@
-# SignalForge — StellarDrive
+# Logic&Switch — StellarDrive
 
 Par **leterrible20**.
 
 *[English below](#english)*
 
-Ajoute à StellarDrive des pièces d'électronique pour le réseau de signaux : lampes, portes logiques, boutons, interrupteur, sectionneur électrique et porte pilotable. Toutes les pièces sont dans l'onglet **SignalForge** du menu de construction, sans recherche à débloquer, et une page **SignalForge** du guide (touche G) explique chaque pièce.
+Ajoute à StellarDrive des pièces d'électronique pour le réseau de signaux : lampes, portes logiques, boutons, interrupteur, sectionneur électrique et porte pilotable. Toutes les pièces sont dans l'onglet **Logic&Switch** du menu de construction, sans recherche à débloquer, et une page **Logic&Switch** du guide (touche G) explique chaque pièce.
 
 ## Pièces
 
@@ -27,8 +27,8 @@ Ajoute à StellarDrive des pièces d'électronique pour le réseau de signaux : 
 ## Installation
 
 1. Avoir [MelonLoader](https://melonwiki.xyz/) 0.7.3 et le mod **SDModKit** installés (ils le sont si vous utilisez StellarModManager avec d'autres mods).
-2. Copier `SignalForge.dll` dans le dossier `Mods` du jeu.
-3. Si vous aviez une ancienne version appelée **ElectroLogic**, supprimez `Mods\ElectroLogic.dll` (vos pièces déjà posées sont conservées).
+2. Copier `LogicSwitch.dll` dans le dossier `Mods` du jeu.
+3. Si vous aviez une ancienne version appelée **ElectroLogic** ou **SignalForge**, supprimez `Mods\ElectroLogic.dll` ou `Mods\SignalForge.dll` (vos pièces déjà posées sont conservées).
 
 En multijoueur, tous les joueurs doivent avoir le mod.
 
@@ -45,17 +45,17 @@ Le script utilise le compilateur C# fourni avec Windows ; il suffit que le jeu s
 ```
 powershell -ExecutionPolicy Bypass -File build.ps1            # compile dans bin\
 powershell -ExecutionPolicy Bypass -File build.ps1 -Install   # compile et copie dans Mods
-powershell -ExecutionPolicy Bypass -File build.ps1 -Package   # compile et crée dist\SignalForge-<version>.zip
+powershell -ExecutionPolicy Bypass -File build.ps1 -Package   # compile et crée dist\LogicSwitch-<version>.zip
 ```
 
 ---
 
 <a name="english"></a>
-# SignalForge — StellarDrive (English)
+# Logic&Switch — StellarDrive (English)
 
 By **leterrible20**.
 
-Adds signal electronics to StellarDrive: lamps, logic gates, push buttons, a toggle switch, a circuit breaker and a remote-controlled door. Every part is in the **SignalForge** tab of the build menu, with no research to unlock, and a **SignalForge** page in the guide (G key) explains every part.
+Adds signal electronics to StellarDrive: lamps, logic gates, push buttons, a toggle switch, a circuit breaker and a remote-controlled door. Every part is in the **Logic&Switch** tab of the build menu, with no research to unlock, and a **Logic&Switch** page in the guide (G key) explains every part.
 
 ## Parts
 
@@ -78,8 +78,8 @@ Adds signal electronics to StellarDrive: lamps, logic gates, push buttons, a tog
 ## Install
 
 1. Have [MelonLoader](https://melonwiki.xyz/) 0.7.3 and the **SDModKit** mod installed (they are if you already use StellarModManager with other mods).
-2. Copy `SignalForge.dll` into the game's `Mods` folder.
-3. If you had an older version called **ElectroLogic**, delete `Mods\ElectroLogic.dll` (parts you already placed are kept).
+2. Copy `LogicSwitch.dll` into the game's `Mods` folder.
+3. If you had an older version called **ElectroLogic** or **SignalForge**, delete `Mods\ElectroLogic.dll` or `Mods\SignalForge.dll` (parts you already placed are kept).
 
 In multiplayer every player needs the mod.
 
@@ -96,7 +96,7 @@ The script uses the C# compiler that ships with Windows; only the game needs to 
 ```
 powershell -ExecutionPolicy Bypass -File build.ps1            # build into bin\
 powershell -ExecutionPolicy Bypass -File build.ps1 -Install   # build and copy into Mods
-powershell -ExecutionPolicy Bypass -File build.ps1 -Package   # build and create dist\SignalForge-<version>.zip
+powershell -ExecutionPolicy Bypass -File build.ps1 -Package   # build and create dist\LogicSwitch-<version>.zip
 ```
 
 ---

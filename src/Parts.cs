@@ -11,7 +11,7 @@ using Ships.Parts.Lever;
 using Ships.Parts.MathGate;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Part ids, build menu registration and the model work for every part but the lamps (Lamps.cs).
     // Ids are saved in worlds: never reuse or renumber one.
@@ -34,7 +34,7 @@ namespace SignalForge
         private const ushort FirstId = 4801;
         private const ushort LastId = 4813;
 
-        public const string Tab = "SignalForge";
+        public const string Tab = "Logic&Switch";
 
         // Sockets. The breaker is a Fluid Valve whose two fluid ends became power plugs, as the
         // Resistor of Functional Batteries does; its two signal plugs (0 and 1) both drive it.
@@ -97,7 +97,7 @@ namespace SignalForge
             def.Configure = (settings, prefab) =>
             {
                 try { configure(settings, prefab); }
-                catch (System.Exception e) { MelonLogger.Error("[SignalForge] " + name + ": " + e); }
+                catch (System.Exception e) { MelonLogger.Error("[Logic&Switch] " + name + ": " + e); }
             };
             CustomParts.Register(def);
         }
@@ -137,7 +137,7 @@ namespace SignalForge
             MathGateVisuals visuals = prefab.GetComponentInChildren<MathGateVisuals>(true);
             if (visuals == null)
             {
-                MelonLogger.Warning("[SignalForge] gate: Signal Combinator visual not found");
+                MelonLogger.Warning("[Logic&Switch] gate: Signal Combinator visual not found");
                 return;
             }
             GameObject host = visuals.gameObject;
@@ -189,7 +189,7 @@ namespace SignalForge
             LeverVisuals lever = prefab.GetComponentInChildren<LeverVisuals>(true);
             if (lever == null)
             {
-                MelonLogger.Warning("[SignalForge] " + settings.fullLabel + ": lever visual not found");
+                MelonLogger.Warning("[Logic&Switch] " + settings.fullLabel + ": lever visual not found");
                 return;
             }
             AccessTools.Field(typeof(LeverVisuals), "maxAngle").SetValue(lever, angle);
@@ -230,7 +230,7 @@ namespace SignalForge
             Paint.Tint(prefab, new Color(0.5f, 0.52f, 0.58f), "sf breaker body", false, handle);
             if (handle == null)
             {
-                MelonLogger.Warning("[SignalForge] breaker: valve handle not found");
+                MelonLogger.Warning("[Logic&Switch] breaker: valve handle not found");
                 return;
             }
             Paint.Tint(handle.gameObject, new Color(1f, 0.78f, 0.05f), "sf breaker handle", true, null);

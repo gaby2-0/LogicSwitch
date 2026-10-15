@@ -10,9 +10,9 @@ using UnityEngine.Localization.Components;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
 
-namespace SignalForge
+namespace LogicSwitch
 {
-    // An "SignalForge" entry in the in-game guide (G) explaining every part, in French or English.
+    // A "Logic&Switch" entry in the in-game guide (G) explaining every part, in French or English.
     // The page is a copy of a vanilla guide page with its content replaced by one text block, so it
     // keeps the guide's font and colours; the guide instantiates it like any other page.
     internal static class Guide
@@ -47,7 +47,7 @@ namespace SignalForge
                 foreach (LocalizeStringEvent localized in button.GetComponentsInChildren<LocalizeStringEvent>(true))
                     localized.enabled = false;
                 foreach (TMP_Text label in button.GetComponentsInChildren<TMP_Text>(true))
-                    label.text = "SignalForge";
+                    label.text = "Logic&Switch";
                 buttons.Add(button);
             }
             catch (Exception e)
@@ -64,7 +64,7 @@ namespace SignalForge
                 if (b != null && b.PageContent != null) { source = b.PageContent; break; }
             if (source == null)
             {
-                MelonLogger.Warning("[SignalForge] guide: no vanilla page to copy");
+                MelonLogger.Warning("[Logic&Switch] guide: no vanilla page to copy");
                 return null;
             }
 
@@ -116,8 +116,8 @@ namespace SignalForge
         private const string E = "</color></b></size>";
 
         private static readonly string French =
-            H + "SignalForge" + E + "\n" +
-            "Toutes les pièces sont dans l'onglet SignalForge du menu de construction. " +
+            H + "Logic&Switch" + E + "\n" +
+            "Toutes les pièces sont dans l'onglet Logic&Switch du menu de construction. " +
             "Pour la logique, un signal de 0,5 ou plus compte comme 1.\n\n" +
             H + "Lampe à écran" + E + "\n" +
             "Le hublot s'allume selon le signal branché sur la prise au bout, sans courant. " +
@@ -149,8 +149,8 @@ namespace SignalForge
             "Sans câble, elle s'ouvre à la main.";
 
         private static readonly string English =
-            H + "SignalForge" + E + "\n" +
-            "Every part is in the SignalForge tab of the build menu. " +
+            H + "Logic&Switch" + E + "\n" +
+            "Every part is in the Logic&Switch tab of the build menu. " +
             "For logic, a signal of 0.5 or more counts as 1.\n\n" +
             H + "Screen Lamp" + E + "\n" +
             "The window lights up from the signal plugged into the socket at the end, with no power. " +

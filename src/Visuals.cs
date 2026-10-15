@@ -14,7 +14,7 @@ using Ships.Parts.MathGate;
 using TMPro;
 using UnityEngine;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Client-side looks: gate labels, lamp colours and text, breaker status light.
     internal static class Visuals

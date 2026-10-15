@@ -6,7 +6,7 @@ using Ships.Parts.SignalTransmitter;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace SignalForge
+namespace LogicSwitch
 {
     // Signal lamps. Both light a lens shaped like the Gas Sensor's round window:
     //  - the screen lamp keeps the whole Gas Sensor and lights its window; its screen shows a text the player writes;
@@ -120,7 +120,7 @@ namespace SignalForge
             }
             if (source == null)
             {
-                MelonLogger.Warning("[SignalForge] screen lamp: Signal Transmitter interaction not found, its text cannot be edited");
+                MelonLogger.Warning("[Logic&Switch] screen lamp: Signal Transmitter interaction not found, its text cannot be edited");
                 return;
             }
 
